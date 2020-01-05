@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<title>Stock Data Lookup</title>
+<link rel=stylesheet type=text/css href='{{ url_for('static',filename='style_lulu.css')}}'>
+
+
+    <h4>
+      Please choose the ticker and the plot type
+    </h4>
+
+    <form id='tickerinfoform' method='post' action='next_ticker' >
+      <p>
+    Ticker: <input type='text' name='ticker' />
+      </p>
+      <p>
+          Plot Type: <br />
+          <input type='radio' name='plot_type' value='close' /> Closing price <br />
+          <input type='radio' name='plot_type' value='adj_close' /> Adjusted closing price  <br />
+          <input type='radio' name='plot_type' value='open' /> Opening price  <br />
+		 <input type='radio' name='plot_type' value='adj_open' /> Adjusted opening price  <br />
+
+        </p>
+
+
+
+    <input type='submit' value='Submit' />
+      </p>
+    </form>
+
+  
+
+</html>
