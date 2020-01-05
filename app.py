@@ -13,7 +13,7 @@ from bokeh.plotting import figure,output_file,show
 from bokeh.embed import components
 from bokeh.embed import file_html
 from bokeh.resources import CDN
-import numpy as np
+
 
 
 app_ticker = Flask(__name__)
