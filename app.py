@@ -16,6 +16,7 @@ from bokeh.resources import CDN
 
 
 
+
 app = Flask(__name__)
 
 # Define a function that make a Bokeh plot
@@ -65,13 +66,14 @@ def index_ticker():
 def next_ticker():
     ticker=request.form['ticker']
     plot_type=request.form['plot_type']
-    title='result'
+    
     
     plot = build_plot(ticker,plot_type)
     
     script, div = components(plot)
     
-    return render_template("plot.html", script=script,div=div)
+    #return render_template("plot.html", script=script,div=div)
+    return div
 
 
 
