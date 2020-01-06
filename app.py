@@ -52,8 +52,8 @@ def build_plot(ticker,plot_type):
     p.line(date,plotting,legend='{}:{}'.format(ticker,plot_type),line_width=2)
 
 
-    #return p
-    return plotting[0]
+    return p
+    
 
 
 
@@ -70,13 +70,12 @@ def next_ticker():
     
     
 
-    #plot = build_plot(ticker,plot_type)
+    plot = build_plot(ticker,plot_type)
     
-    #script, div = components(plot)
+    script, div = components(plot)
     
     #return render_template("plot.html", script=script,div=div)
-    x=build_plot(ticker,plot_type)
-    return x
+    return ticker
 
 
 
