@@ -52,8 +52,8 @@ def build_plot(ticker,plot_type):
     p.line(date,plotting,legend='{}:{}'.format(ticker,plot_type),line_width=2)
 
 
-    return p
-    
+    #return p
+    return df['year'][59
 
 
 
@@ -72,10 +72,10 @@ def next_ticker():
 
     plot = build_plot(ticker,plot_type)
     
-    script, div = components(plot)
+    #script, div = components(plot)
     
     #return render_template("plot.html", script=script,div=div)
-    return ticker
+    return plot
 
 
 
