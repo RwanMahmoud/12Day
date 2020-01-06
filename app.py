@@ -53,7 +53,7 @@ def build_plot(ticker,plot_type):
 
 
     #return p
-    return df['year'][59
+    return df['year'][59]
 
 
 
