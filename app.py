@@ -73,7 +73,7 @@ def next_ticker():
     
     script, div = components(plot)
     
-    return render_template("plot.html", script=script,div=div)
+    return render_template("bokehplot.html", script=script,div=div)
     
 
 
