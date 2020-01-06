@@ -55,7 +55,7 @@ def build_plot(ticker,plot_type):
 
 
 
-@app.route('/index_ticker')
+@app.route('/')
 def index_ticker():
     return render_template('ticker_info.html')
     
