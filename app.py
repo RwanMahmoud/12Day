@@ -20,14 +20,21 @@ from bokeh.resources import CDN
 app = Flask(__name__)
 
 # Define a function that make a Bokeh plot
-def build_plot(ticker,plot_type):
+def build_plot(ticker,plot_type,month):
+
+    
 
 
-    api_key=#QUANDLE KEY
+    api_key='kj_HTAuyzXuNCnYrKEos'
     url='https://www.quandl.com/api/v3/datatables/WIKI/PRICES?ticker={}&api_key={}'.format(ticker,api_key)
     res = requests.get(url)
     x=res.json()
     columns_names=['ticker','date','open','high','low','close','volume','ex-dividend','split-ratio','adj_open','adj_high','adj_low','adj_close','adj_volume']
+
+    months = {'January':1,'February':2,'March':3,'April':4,'May':5,'June':6,'July':7,'August':8,
+              'September':9,'October':10,'November':11,'December':12}
+
+
     df = pd.DataFrame(x['datatable']['data'])
     df.columns=columns_names
     df['date'] = pd.to_datetime(df['date']) #to change into pandas Date type
@@ -36,6 +43,7 @@ def build_plot(ticker,plot_type):
 
     df=df.sort_values(by=['date'],ascending=False)
     df=df[df['year']==2017]
+    df=df[df['month']==months[month]]
         
         
     plotting=df[plot_type]
@@ -43,7 +51,7 @@ def build_plot(ticker,plot_type):
 
     #add plot
     p=figure(
-        title='QUANDL WIKI EOD Stock Prices - 2017',
+        title='QUANDL WIKI EOD Stock Prices - {}, 2017'.format(month),
         x_axis_label='date',
         x_axis_type='datetime'
         )
@@ -66,14 +74,17 @@ def index_ticker():
 def next_ticker():
     ticker=request.form['ticker']
     plot_type=request.form['plot_type']
+    month=request.form['month']
     
     
 
-    plot = build_plot(ticker,plot_type)
+    plot = build_plot(ticker,plot_type,month)
     
     script, div = components(plot)
     
     return render_template("plot.html", script=script,div=div)
+    
+
     
 
 
