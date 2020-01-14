@@ -25,7 +25,7 @@ def build_plot(ticker,plot_type,month):
     
 
 
-    api_key='kj_HTAuyzXuNCnYrKEos'
+    api_key=#api_key
     url='https://www.quandl.com/api/v3/datatables/WIKI/PRICES?ticker={}&api_key={}'.format(ticker,api_key)
     res = requests.get(url)
     x=res.json()
